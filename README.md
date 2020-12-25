@@ -2,7 +2,7 @@
 The Backend of Felipe and Wendy's wedding website
 
 
-## How to run
+## How to install and run
 ```bash
 $ poetry install
 $ poetry run uvicorn app:app --reload
