@@ -14,6 +14,7 @@ app.add_middleware(
     allow_origins=[
         "http://127.0.0.1:5500",
         "https://felipe-e-wendy.github.io/",
+        "https://felipe-e-wendy.github.io",
     ],
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
