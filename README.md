@@ -7,6 +7,8 @@ The Backend of Felipe and Wendy's wedding website
 
 - [Poetry](https://python-poetry.org/) 1.x 
 
+- [MongoDB Atlas](https://www.mongodb.com/cloud/) Database configurated
+
 ## How to install 
 
 1. Clone the repository
@@ -17,9 +19,15 @@ The Backend of Felipe and Wendy's wedding website
     $ poetry install
     ```
 
-3. Registre the site on [Google reCAPTCHA v2](https://www.google.com/recaptcha/) and get the pairs of keys.
+3. Registre the front-end domain on [Google reCAPTCHA v2](https://www.google.com/recaptcha/) and get the pairs of keys.
 
 4. Set the enviroment variable "SECRET_RECAPTCHAV2" with the server-side secret key.
+
+5. Set the enviroment variable "MONGODB_USER" with the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB User.
+
+6. Set the enviroment variable "MONGODB_PASSWORD" with the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB Password.
+
+7. Set the enviroment variable "MONGODB_NAME" with the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB name.
 
 ## How to run
 ```bash
