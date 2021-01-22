@@ -9,6 +9,8 @@ The Backend of Felipe and Wendy's wedding website
 
 - [MongoDB Atlas](https://www.mongodb.com/cloud/) Database configurated
 
+- [Mercado Pago](https://www.mercadopago.com.br/) Credentials configurated
+
 ## How to install 
 
 1. Clone the repository
@@ -23,11 +25,15 @@ The Backend of Felipe and Wendy's wedding website
 
 4. Set the enviroment variable "SECRET_RECAPTCHAV2" with the server-side secret key.
 
-5. Set the enviroment variable "MONGODB_USER" with the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB User.
+5. Set the MongoDB Atlas Secrets
 
-6. Set the enviroment variable "MONGODB_PASSWORD" with the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB Password.
+    5.1. Set the enviroment variable "MONGODB_USER" as [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB User.
 
-7. Set the enviroment variable "MONGODB_NAME" with the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB name.
+    5.2. Set the enviroment variable "MONGODB_PASSWORD" as [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB Password.
+
+    5.3. Set the enviroment variable "MONGODB_NAME" as [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) DB name.
+
+6. Set the enviroment variable "MEPAGO_ACCESS_TOKEN" as [Mercado Pago](https://www.mercadopago.com.br/) Access Token.
 
 ## How to run
 ```bash
