@@ -32,7 +32,6 @@ class Payment:
         )
         self.status = preference["status"]
         response = preference["response"]
-        print(status)
         self._id = response["id"]
         self._url = response["init_point"]
 
