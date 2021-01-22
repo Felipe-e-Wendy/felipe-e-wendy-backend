@@ -2,9 +2,12 @@ from fastapi import FastAPI, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 
 from .models import FromForm
 from .database import db
+from .payment import Payment
 
 app = FastAPI()
 
@@ -19,6 +22,16 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
+
+def format_msg(msg):
+    document = dict()
+    msg_dict = msg.dict()
+    document["name"] = msg_dict["name"]
+    document["wpp"] = msg_dict["wpp"]
+    document["msg"] = msg_dict["msg"]
+    document["price"] = msg_dict["price"]
+    document["paid"] = False
+    return document
 
 
 @app.on_event("shutdown")
@@ -40,16 +53,17 @@ async def create_item(msg: FromForm, response: Response):
     ).json()
 
     if response_captcha["success"]:
-        document = dict()
-        msg_dict = msg.dict()
-        document["name"] = msg_dict["name"]
-        document["wpp"] = msg_dict["wpp"]
-        document["msg"] = msg_dict["msg"]
-        document["price"] = msg_dict["price"]
-        document["payment_id"] = "test paid id"
-        document["paid"] = False
-        db.msg.insert_one(document.copy())
-        return document
+        document = format_msg(msg)
+        payment = Payment(document)  
+        if payment.status == 201:          
+            document["payment_id"] = payment.pay_id
+            document["payment_url"] = payment.url
+            db.msg.insert_one(document.copy())
+            return document
+        else:
+            response.status_code = payment.status
+            return {"error": "Mercado Pago Error"}
+            
 
     else:
         response.status_code = status.HTTP_401_UNAUTHORIZED

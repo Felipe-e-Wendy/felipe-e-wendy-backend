@@ -12,6 +12,8 @@ uvicorn = {extras = ["standard"], version = "^0.13.2"}
 requests = "^2.25.1"
 motor = "^2.3.0"
 dnspython = "^2.0.0"
+mercadopago = "^1.1.1"
+python-dotenv = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
