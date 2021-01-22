@@ -1,11 +1,8 @@
 from pydantic import BaseModel, constr, PositiveFloat
 
-_wpp_len = len("(99) 99999-9999")
-
-
 class FromForm(BaseModel):
     name: constr(max_length=50)
-    wpp: constr(max_length=_wpp_len, min_length=_wpp_len)
+    wpp: constr(regex=r"^(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})$") #regex for (99) 99999-9999
     price: PositiveFloat
     msg: constr(max_length=140)
     token: str
