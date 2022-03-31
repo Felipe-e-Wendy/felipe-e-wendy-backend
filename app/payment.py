@@ -1,7 +1,9 @@
 import mercadopago
-import json
 from os import environ
 import re
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class Payment:
@@ -17,8 +19,8 @@ class Payment:
             {
                 "items": [
                     {
-                        "title": f"Doação para o casamemento de Felipe e Wendy",
-                        "description": f"Doação de {document['name']} para o casamemento de Felipe e Wendy no valor de {document['price']}",
+                        "title": "Doação para o casamemento de Felipe e Wendy",
+                        "description": f"Doação de {document['name']} para o casamemento de Felipe e Wendy no valor de {document['price']}", # noqa
                         "quantity": 1,
                         "currency_id": "BRL",
                         "unit_price": document["price"],

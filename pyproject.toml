@@ -6,14 +6,14 @@ authors = ["Felipe Markson <fmarkson@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "3.8.6"
-fastapi = "^0.63.0"
-uvicorn = {extras = ["standard"], version = "^0.13.2"}
-requests = "^2.25.1"
-motor = "^2.3.0"
-dnspython = "^2.0.0"
-mercadopago = "^1.1.1"
-python-dotenv = "^0.15.0"
+python = "3.10.x"
+fastapi = "0.75.X"
+motor = "2.5.x"
+mercadopago = "1.x"
+python-dotenv = "0.20.x"
+uvicorn = "^0.17.6"
+dnspython = "^2.2.1"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
